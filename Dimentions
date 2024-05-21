@@ -1,0 +1,38 @@
+Conformed Dimension
+    same meaning across different Dimensions (Date_ID-Product_ID)
+    one per fact record
+
+Degenerate Dimension
+    key without Dimension table
+    Stored in fact table if has no lookup or details used only for grouping
+
+Junk Dimension
+    reduce the number of dimintions(low-cardinality) and reduce the number of columns in fact table; 
+        In the context of a database, cardinality is a measure of the uniqueness of values in the data. Low cardinality means few unique values; high cardinality means many unique values.
+    optimize space in fact tables
+    Example: without => color = car = body , with => car = car_attribute
+    doesn't need to be related
+
+Role playing Dimension (reusable dim)
+    single physical dim helps to refrence mutiple times in 1 record in fact table each logically link is distinct
+    Example: using time for mutiple columns while having calender Dimension
+
+Outrigger Dimension
+    refere to another Dimension, this other Dimension is the outrigger (carefully use it with limited cases)
+    FACT = dim 2 = dim 1 and FACT = dim 1: dim 2 is the outrigger
+
+Snowflake Dimension
+    FACT = DIM1 = DIM2 = DIM3 ...
+    complex to model and query performance and complicate the ETL process
+
+Slowly changing Dimension
+    values change slowly over time:
+        type 0 (FIXED): don't care about the value change we don't update the values
+        type 1 (NO HISTORY): no history is mintained, only the latest value
+        type 2 (HISTORY): series of history of records are maintained :::: Value column and a boolean "IS_CURRENT" column
+        type 3 (HYBRID): only the last and the previous values are mintained :::: Value column and last Value column
+        type 4 (most used): we split the data into 2 tables 1 for history the other for the current record
+
+Fast Changing Dimension
+    values change rapidly over time (handling with mini Dimension technice)
+    v
