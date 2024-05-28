@@ -35,4 +35,20 @@ Slowly changing Dimension
 
 Fast Changing Dimension
     values change rapidly over time (handling with mini Dimension technice)
-    v
+    P = P_relation_details = P_details ::: P_relation_details is the mini dim
+
+Shrunken Dimension
+    developing aggregate of fact table
+    fact must be lower level of granuality
+    Imagine the fact table has records per day this dim will have records per month for example
+
+Multi Valued Dimention
+    for handling many to many DIM, Actually to solve M2M case we use bridge table
+    a table with only 1 column represents the distinct groupID for group of people
+
+Swappable Dimention
+    multiple alternate versions that can be swapped at query time
+    used for data restrictions
+    something like table or a view
+    sales or agent views is built on the sales table, not best per performance
+    u can use physical table, more memory, ETL headache
