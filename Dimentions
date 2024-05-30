@@ -52,3 +52,10 @@ Swappable Dimention
     something like table or a view
     sales or agent views is built on the sales table, not best per performance
     u can use physical table, more memory, ETL headache
+
+
+Hetrogeneous Dimension
+    ex: different product with different attributes for the same customer
+    seperate dimintions: for each product or service
+    merge attributes: all in one, not recommended
+    generic design: on fact and one dimension, will focus only on the common attributes
